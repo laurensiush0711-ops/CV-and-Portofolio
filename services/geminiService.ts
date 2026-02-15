@@ -21,15 +21,16 @@ Tone & Persona:
 `;
 
 export const getCareerAdvice = async (userMessage: string) => {
-  // Fix: Initialize GoogleGenAI directly within the function using process.env.API_KEY as per guidelines.
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  // Ensure we have an API key before proceeding.
+  const apiKey = process.env.API_KEY;
   
-  if (!process.env.API_KEY) {
+  if (!apiKey) {
     return "The Gemini API key is missing. Please ensure it is configured correctly in your environment.";
   }
 
   try {
-    // Fix: Use ai.models.generateContent directly with required parameters and config.
+    // Guidelines: Initialize GoogleGenAI right before use.
+    const ai = new GoogleGenAI({ apiKey });
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: userMessage,
@@ -39,7 +40,7 @@ export const getCareerAdvice = async (userMessage: string) => {
       },
     });
 
-    // Fix: Access the .text property directly from GenerateContentResponse (not a method).
+    // Access text property directly from GenerateContentResponse.
     return response.text || "I'm sorry, I couldn't generate a response.";
   } catch (error) {
     console.error("Gemini Error:", error);
