@@ -1,11 +1,46 @@
-<div align="center">
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+# Laurensius Haryo | Portfolio & CV
 
-  <h1>Built with AI Studio</h2>
+A modern, interactive professional portfolio and CV for a Game Designer & AI Prompt Engineer. Built with React, Vite, and Google Gemini AI.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## 🚀 One-Command Local Setup
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+If you have Node.js installed, simply run the following command in your terminal:
 
-</div>
+```bash
+npm run setup
+```
+
+This script will automatically install dependencies and prepare your environment variables.
+
+## 🛠 Manual Setup
+
+If you prefer to do it manually:
+
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Configure Environment Variables**:
+   - Copy `.env.example` to `.env`:
+     ```bash
+     cp .env.example .env
+     ```
+   - Open `.env` and replace `your_actual_api_key_here` with your [Gemini API Key](https://aistudio.google.com/app/apikey).
+
+3. **Run the App**:
+   ```bash
+   npm run dev
+   ```
+
+## 🏗 Project Structure
+
+- `App.tsx`: The main layout and navigation logic.
+- `constants.ts`: All resume data, skills, and projects (centralized for easy updates).
+- `services/geminiService.ts`: Integration with Google GenAI for the career bot.
+- `components/CareerBot.tsx`: Interactive AI assistant UI.
+- `components/SkillsChart.tsx`: Data visualization of technical skills.
+
+## 🤖 AI Features
+The "CareerBot" is powered by Gemini 2.0. It is pre-configured with Laurensius's specific professional context to answer recruiter questions about his transition from QA to AI Prompt Engineering.
