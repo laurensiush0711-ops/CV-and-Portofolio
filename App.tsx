@@ -167,22 +167,13 @@ const App: React.FC = () => {
           {/* Hero Image Section */}
           <div className="flex-shrink-0 reveal [animation-delay:0.5s] relative">
             <div className="relative group w-[280px] h-[340px] md:w-[360px] md:h-[440px]">
-              {/* Animated Floating Frame Elements */}
               <div className="absolute -top-6 -right-6 w-28 h-28 border-t-2 border-r-2 border-[#64ffda]/20 z-0 group-hover:-top-2 group-hover:-right-2 transition-all duration-700"></div>
               <div className="absolute -bottom-6 -left-6 w-28 h-28 border-b-2 border-l-2 border-[#64ffda]/20 z-0 group-hover:-bottom-2 group-hover:-left-2 transition-all duration-700"></div>
-
-              {/* Decorative offset solid border */}
               <div className="absolute top-4 left-4 w-full h-full border-2 border-[#64ffda] rounded-lg group-hover:top-2 group-hover:left-2 transition-all duration-300"></div>
               
-              {/* Image Main Container */}
               <div className="relative w-full h-full bg-[#112240] rounded-lg overflow-hidden shadow-2xl border border-[#233554] group-hover:-translate-x-1 group-hover:-translate-y-1 transition-all duration-300 z-10 flex items-center justify-center">
-                {/* Techy Scan-line Overlay (Visible on Hover) */}
                 <div className="absolute inset-0 bg-gradient-to-b from-[#64ffda]/10 to-transparent h-1/2 w-full opacity-0 group-hover:opacity-100 animate-[bounce_3s_infinite] pointer-events-none z-30"></div>
-                
-                {/* Image Tint Overlay */}
                 <div className="absolute inset-0 bg-[#64ffda]/10 mix-blend-color group-hover:bg-transparent transition-all duration-500 z-20 pointer-events-none"></div>
-                
-                {/* Dark brand overlay */}
                 <div className="absolute inset-0 bg-[#0a192f]/20 group-hover:bg-transparent transition-colors duration-500 pointer-events-none z-20"></div>
                 
                 <img 
@@ -190,25 +181,21 @@ const App: React.FC = () => {
                   alt={CV_DATA.name}
                   className="w-full h-full object-cover grayscale brightness-90 contrast-110 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700"
                   onError={(e) => {
-                    // Hide the broken image and show the fallback
                     e.currentTarget.style.display = 'none';
                     const fallback = e.currentTarget.parentElement?.querySelector('.profile-fallback');
                     if (fallback) fallback.classList.remove('hidden');
                   }}
                 />
                 
-                {/* Fallback if image not found */}
                 <div className="profile-fallback hidden flex flex-col items-center justify-center w-full h-full gap-4 text-[#64ffda]/30 text-center p-6 bg-[#112240]">
                   <i className="fas fa-database text-8xl mb-4"></i>
-                  <span className="mono text-[10px] uppercase tracking-[0.2em] max-w-[150px]">Please rename your file to 'profile.jpg'</span>
+                  <span className="mono text-[10px] uppercase tracking-[0.2em] max-w-[150px]">Profile Image Not Found</span>
                 </div>
 
-                {/* Corner accents */}
                 <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#64ffda] z-40 m-2 opacity-50"></div>
                 <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#64ffda] z-40 m-2 opacity-50"></div>
               </div>
 
-              {/* Status Badge */}
               <div className="absolute -bottom-6 right-0 md:-right-6 bg-[#0a192f] border border-[#233554] px-4 py-2 rounded-md shadow-2xl z-50 mono text-[9px] text-[#64ffda] border-l-4 border-l-[#64ffda] flex items-center gap-2">
                  <div className="w-1.5 h-1.5 rounded-full bg-[#64ffda] animate-pulse"></div>
                  <span className="tracking-widest uppercase">Transitioning_to_Analytics</span>
@@ -226,26 +213,6 @@ const App: React.FC = () => {
           <div className="flex flex-col md:flex-row gap-12">
             <div className="flex-1 space-y-4 text-[#8892b0] text-sm md:text-base leading-relaxed">
               <p>{CV_DATA.bio}</p>
-              <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <p className="mono text-[#64ffda] text-xs uppercase mb-3">Core Expertise:</p>
-                  <ul className="space-y-2 text-xs opacity-80">
-                    <li className="flex items-center gap-2">▹ Data Cleaning & EDA</li>
-                    <li className="flex items-center gap-2">▹ Systematic Bug Analysis</li>
-                    <li className="flex items-center gap-2">▹ Game Economy Balancing</li>
-                    <li className="flex items-center gap-2">▹ AI Prompting & Logic</li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="mono text-[#64ffda] text-xs uppercase mb-3">Soft Skills:</p>
-                  <ul className="space-y-2 text-xs opacity-80">
-                    <li className="flex items-center gap-2">▹ Analytical Thinking</li>
-                    <li className="flex items-center gap-2">▹ Critical Problem Solving</li>
-                    <li className="flex items-center gap-2">▹ Strategic Negotiation</li>
-                    <li className="flex items-center gap-2">▹ Rapid Adaptability</li>
-                  </ul>
-                </div>
-              </div>
             </div>
             <div className="md:w-1/3">
               <SkillsChart />
@@ -291,17 +258,19 @@ const App: React.FC = () => {
                 className="group bg-[#112240] rounded-lg p-8 border border-[#233554] hover:border-[#64ffda]/50 hover:-translate-y-2 transition-all duration-300 cursor-pointer flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex justify-between items-start mb-8">
+                  <div className="flex justify-between items-start mb-6">
                     <i className="fas fa-folder text-[#64ffda] text-4xl"></i>
                     <div className="flex gap-4 text-[#ccd6f6] text-xl">
-                      <i className="fab fa-github hover:text-[#64ffda]"></i>
-                      {project.link && <i className="fas fa-external-link-alt hover:text-[#64ffda]"></i>}
+                      {project.link && <a href={project.link} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="hover:text-[#64ffda]"><i className="fas fa-external-link-alt"></i></a>}
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-[#ccd6f6] mb-3 group-hover:text-[#64ffda]">{project.title}</h3>
+                  <div className="mb-2 flex items-center gap-3">
+                    <h3 className="text-xl font-bold text-[#ccd6f6] group-hover:text-[#64ffda]">{project.title}</h3>
+                  </div>
+                  <p className="mono text-[10px] text-[#64ffda] mb-3 uppercase tracking-wider">{project.period}</p>
                   <p className="text-[#8892b0] text-sm leading-relaxed mb-6">{project.description}</p>
                 </div>
-                <div className="flex flex-wrap gap-x-4 gap-y-2 mt-auto">
+                <div className="flex flex-wrap gap-x-4 gap-y-2 mt-auto pt-4 border-t border-[#233554]/50">
                   {project.tags.map((t, i) => (
                     <span key={i} className="mono text-[10px] text-[#8892b0]">{t}</span>
                   ))}
@@ -341,7 +310,7 @@ const App: React.FC = () => {
           <p className="mono text-[#64ffda] mb-4 text-sm tracking-widest uppercase">06. Contact</p>
           <h2 className="text-4xl md:text-5xl font-bold text-[#ccd6f6] mb-6">Let's Connect</h2>
           <p className="text-[#8892b0] mb-12">
-            I'm currently looking for new opportunities in Data Analytics where I can apply my systematic background. My inbox is always open!
+            I'm currently looking for new opportunities in Data Analytics. My inbox is always open!
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center">
             <a href={`mailto:${CV_DATA.email}`} className="px-12 py-5 border border-[#64ffda] text-[#64ffda] mono text-sm rounded hover:bg-[#64ffda]/10 transition-colors">
@@ -358,12 +327,105 @@ const App: React.FC = () => {
       {selectedProject && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
           <div onClick={() => setSelectedProject(null)} className="absolute inset-0 bg-[#020c1b]/90 backdrop-blur-md" />
-          <div className="relative bg-[#112240] w-full max-w-2xl rounded-lg shadow-2xl border border-[#233554] p-8 reveal">
-            <button onClick={() => setSelectedProject(null)} className="absolute top-6 right-6 text-[#8892b0] hover:text-[#64ffda]"><i className="fas fa-times text-xl"></i></button>
-            <p className="mono text-[#64ffda] text-xs mb-2 tracking-widest">PROJECT CASE STUDY</p>
-            <h2 className="text-3xl font-bold text-[#ccd6f6] mb-6">{selectedProject.title}</h2>
-            <p className="text-[#8892b0] leading-relaxed mb-8">{selectedProject.description}</p>
-            {selectedProject.note && <div className="p-4 bg-[#0a192f] rounded border-l-4 border-[#64ffda] text-xs italic text-[#ccd6f6] mb-8">{selectedProject.note}</div>}
-            <div className="flex justify-between items-center border-t border-[#233554] pt-8">
-              <div className="flex flex-wrap gap-2">
-                {selectedProject.tags.map((t, i
+          <div className="relative bg-[#112240] w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-lg shadow-2xl border border-[#233554] p-8 md:p-12 reveal scrollbar-hide">
+            <button onClick={() => setSelectedProject(null)} className="absolute top-6 right-6 text-[#8892b0] hover:text-[#64ffda] p-2 z-10"><i className="fas fa-times text-xl"></i></button>
+            
+            <div className="mb-8">
+              <div className="flex flex-wrap items-center gap-4 mb-4">
+                <p className="mono text-[#64ffda] text-xs tracking-widest uppercase bg-[#64ffda]/10 px-3 py-1 rounded">Project Case Study</p>
+                {selectedProject.link && (
+                  <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="mono text-[#64ffda] text-xs hover:underline flex items-center gap-2">
+                     • View Project <i className="fas fa-external-link-alt text-[10px]"></i>
+                  </a>
+                )}
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-[#ccd6f6] mb-2">{selectedProject.title}</h2>
+              <p className="mono text-[#8892b0] text-sm md:text-base">{selectedProject.period}</p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+              <div className="lg:col-span-2 space-y-10">
+                {selectedProject.summary && (
+                  <div>
+                    <h4 className="text-[#ccd6f6] font-bold text-lg mb-4 flex items-center gap-2">
+                      <span className="w-1 h-6 bg-[#64ffda] block"></span> Project Summary
+                    </h4>
+                    <p className="text-[#8892b0] leading-relaxed text-[15px]">{selectedProject.summary}</p>
+                  </div>
+                )}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {selectedProject.goals && (
+                    <div>
+                      <h4 className="text-[#ccd6f6] font-bold text-sm mono uppercase tracking-wider mb-3 text-[#64ffda]">Goals</h4>
+                      <p className="text-[#8892b0] leading-relaxed text-sm">{selectedProject.goals}</p>
+                    </div>
+                  )}
+                  {selectedProject.process && (
+                    <div>
+                      <h4 className="text-[#ccd6f6] font-bold text-sm mono uppercase tracking-wider mb-3 text-[#64ffda]">Process</h4>
+                      <p className="text-[#8892b0] leading-relaxed text-sm">{selectedProject.process}</p>
+                    </div>
+                  )}
+                </div>
+
+                {selectedProject.output && (
+                  <div className="bg-[#0a192f] p-6 rounded-lg border border-[#233554]">
+                    <h4 className="text-[#ccd6f6] font-bold text-sm mono uppercase tracking-wider mb-4 text-[#64ffda]">Output</h4>
+                    <p className="text-[#8892b0] leading-relaxed text-sm">{selectedProject.output}</p>
+                  </div>
+                )}
+              </div>
+
+              <div className="space-y-8">
+                 {selectedProject.achievements && (
+                   <div className="bg-[#1b2b48] p-6 rounded-lg border-l-4 border-[#64ffda]">
+                     <h4 className="text-[#ccd6f6] font-bold mb-4 text-sm mono uppercase tracking-wider">Scope of Work / Achievements</h4>
+                     <ul className="space-y-4">
+                        {selectedProject.achievements.map((item, i) => (
+                          <li key={i} className="flex gap-3 text-[#8892b0] text-xs leading-relaxed">
+                            <span className="text-[#64ffda] shrink-0 mt-0.5">▹</span>
+                            {item}
+                          </li>
+                        ))}
+                     </ul>
+                   </div>
+                 )}
+
+                 <div className="bg-[#0a192f] p-6 rounded-lg border border-[#233554]">
+                    <div className="mb-6">
+                      <div className="text-[#64ffda] text-3xl font-bold mono">{selectedProject.metricValue.toLocaleString()}{selectedProject.metricLabel.includes('Rating') ? '%' : ''}</div>
+                      <div className="mono text-[10px] text-[#8892b0] uppercase tracking-widest">{selectedProject.metricLabel}</div>
+                    </div>
+                    <div>
+                      <h4 className="text-[#ccd6f6] font-bold text-xs mono uppercase tracking-wider mb-3">Technologies</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {selectedProject.tags.map((t, i) => (
+                          <span key={i} className="px-2 py-1 bg-[#233554] rounded mono text-[9px] text-[#64ffda]">{t}</span>
+                        ))}
+                      </div>
+                    </div>
+                 </div>
+              </div>
+            </div>
+            
+            <div className="mt-12 pt-8 border-t border-[#233554] flex justify-between items-center">
+               <button onClick={() => setSelectedProject(null)} className="text-[#8892b0] hover:text-[#64ffda] mono text-xs flex items-center gap-2 transition-colors">
+                  <i className="fas fa-arrow-left"></i> Back to Projects
+               </button>
+               {selectedProject.note && <p className="text-[11px] italic text-[#8892b0] max-w-[200px] text-right">{selectedProject.note}</p>}
+            </div>
+          </div>
+        </div>
+      )}
+
+      <footer className="py-12 text-center opacity-50 mono text-[10px]">
+        Designed & Built by {CV_DATA.name} &copy; 2024
+      </footer>
+
+      <CareerBot />
+    </div>
+  );
+};
+
+export default App;

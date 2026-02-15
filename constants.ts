@@ -5,7 +5,7 @@ export const CV_DATA = {
   name: "Laurensius Haryo Radyobaskoro P",
   targetRole: "Data Analyst",
   currentRole: "Game Designer & QA Junior transitioning to Data Analytics",
-  profileImage: "profile.jpg", // Ensure your image file is named this and in the root directory
+  profileImage: "profile.jpg",
   bio: "I am a detail-oriented Data Analyst with a strong background in game design and quality assurance. I have diverse experience in the gaming industry, including roles as a Co-Founder and Game Designer at Rise Up Studio for 2 years, a full-time Game Designer at Wisgame for 1 year, and a QA Tester at Forgefun for over a year, supporting multiple in-development and live projects. As a QA Tester, I ensured product quality through systematic testing and structured reporting, identifying over 120 bugs and significantly enhancing game stability. My analytical skills facilitated informed decision-making by employing data-driven approaches to detect patterns in bugs and inconsistencies. I am currently enhancing my skills in data cleaning, exploratory analysis, and data visualization to transition effectively into data analytics. I am eager to leverage my unique experiences to drive reliable and high-quality outcomes in data analytics.",
   email: "Laurensiush.0711@gmail.com",
   linkedin: "linkedin.com/in/laurensius-haryo-radyobaskoro-p-373146177",
@@ -17,20 +17,17 @@ export const CV_DATA = {
 };
 
 export const SKILLS: Skill[] = [
-  // Data & Analytics Category
   { name: "Python", level: 85, category: 'Data' },
   { name: "SQL", level: 80, category: 'Data' },
   { name: "Tableau", level: 90, category: 'Data' },
   { name: "Data Analytics", level: 95, category: 'Data' },
   { name: "Data Visualization", level: 95, category: 'Data' },
   { name: "Spreadsheets", level: 95, category: 'Data' },
-  // QA & Technical Category
   { name: "Manual Testing", level: 95, category: 'QA' },
   { name: "API Testing (Postman)", level: 85, category: 'QA' },
   { name: "AI Prompting", level: 90, category: 'QA' },
   { name: "Javascript", level: 70, category: 'QA' },
   { name: "Unity Engine", level: 75, category: 'QA' },
-  // Tools & Organization Category
   { name: "ERP", level: 80, category: 'Tools' },
   { name: "Negotiation", level: 85, category: 'Tools' },
   { name: "Problem Solving", level: 95, category: 'Tools' },
@@ -92,15 +89,28 @@ export const EXPERIENCES: Experience[] = [
 export const PROJECTS: Project[] = [
   {
     title: "Steam Market Analysis",
-    description: "Analyzed 65,751 total games across 58 genres on Steam to identify variables that increase the likelihood of achieving a Metacritic score of 75 or higher. Evaluated five years of market data using Python and Tableau to inform strategic planning.",
+    period: "January - February 2026",
+    description: "Market analysis of 65k+ games to identify variables increasing Metacritic score probability for PixelForge Studios.",
+    summary: "This project analyzes the Steam game market for PixelForge Studios, a mid-sized 'AA' developer. Operating in a rapidly growing but crowded marketplace, the studio seeks data-driven positioning strategies to stand out. The analysis evaluates market variables from 2021 to 2025 to guide game development decisions for a three-year cycle.",
+    goals: "The primary objective is to identify key variables that increase the likelihood of achieving a Metacritic score of 75 or higher. The project aims to find actionable patterns in five years of Steam release data to inform early-stage planning and market positioning for future game development.",
+    process: "The methodology began with defining the problem and gathering relevant data from Kaggle. Data cleaning and exploratory analysis were performed using Python (Google Colabs) and Tableau was utilized for both analysis and data visualization. The analysis focused on genre growth rates, feature adoption, and platform support to derive strategic market insights.",
+    output: "Analysis revealed that 70.84% of Steam games are indie, suggesting the studio should leverage 'Premium Indie' positioning for better visibility. Recommendations include prioritizing the Strategy genre and polishing single-player fundamentals over complex multiplayer systems. Implementing multiplatform support (99.84% of games) and basic Steam features like cloud saves ensures high ROI and player satisfaction.",
+    achievements: [
+      "Analyzed 65,751 total games and 58 genres on Steam to identify variables for achieving a 75+ Metacritic score.",
+      "Evaluated five years of market data using Python and Tableau to guide development decisions for three-year cycles.",
+      "Identified that 70.84% of competitors are indie studios, recommending a 'Premium Indie' strategy for optimal algorithmic visibility.",
+      "Advised multiplatform deployment for 99.84% of titles to maximize market reach and avoid visibility penalties on Steam."
+    ],
     tags: ["Python", "Tableau", "Market Analysis", "Google Colab", "Data Cleaning"],
     metricLabel: "Dataset Size",
     metricValue: 65751,
+    link: "https://github.com/Parad5050/steam-market-analysis",
     note: "Recommended a 'Premium Indie' strategy for optimal algorithmic visibility."
   },
   {
     title: "Thaumaturgy: Cast and Clash",
-    description: "Designed core gameplay mechanics centered on combo creation. Created and edited 3 iterations of the Game Design Document (GDD), establishing a clear project vision. Balanced character skills for 8 unique mages.",
+    period: "January - May 2021",
+    description: "Designed core gameplay mechanics and combo systems for a competitive mage-based combat game.",
     tags: ["GDD", "Unity", "UI/UX Wireframes", "Playtesting", "Mechanic Design"],
     metricLabel: "Playtester Rating",
     metricValue: 90,

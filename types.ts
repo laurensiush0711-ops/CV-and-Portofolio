@@ -18,7 +18,13 @@ export interface Education {
 
 export interface Project {
   title: string;
-  description: string;
+  period: string;
+  description: string; // Short version for cards
+  summary?: string;    // Long version for case study
+  goals?: string;
+  process?: string;
+  output?: string;
+  achievements?: string[];
   tags: string[];
   link?: string;
   metricLabel: string;
