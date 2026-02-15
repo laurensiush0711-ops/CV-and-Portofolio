@@ -1,4 +1,3 @@
-
 import { GoogleGenAI } from "@google/genai";
 import { CV_DATA, EXPERIENCES, SKILLS } from "../constants";
 
@@ -21,15 +20,15 @@ Tone & Persona:
 `;
 
 export const getCareerAdvice = async (userMessage: string) => {
-  // Ensure we have an API key before proceeding.
+  // Use the key injected by Vite via define in vite.config.ts
   const apiKey = process.env.API_KEY;
   
-  if (!apiKey) {
-    return "The Gemini API key is missing. Please ensure it is configured correctly in your environment.";
+  if (!apiKey || apiKey === '') {
+    console.error("Gemini API Key is missing. Check your .env or GitHub Secrets.");
+    return "The career bot is currently offline (API key missing). Please try again later.";
   }
 
   try {
-    // Guidelines: Initialize GoogleGenAI right before use.
     const ai = new GoogleGenAI({ apiKey });
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
@@ -40,10 +39,9 @@ export const getCareerAdvice = async (userMessage: string) => {
       },
     });
 
-    // Access text property directly from GenerateContentResponse.
     return response.text || "I'm sorry, I couldn't generate a response.";
   } catch (error) {
     console.error("Gemini Error:", error);
-    return "There was an error communicating with the AI. Please verify your API key and network connection.";
+    return "There was an error communicating with the AI. This usually happens if the API key is invalid or the usage limit is reached.";
   }
 };
